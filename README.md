@@ -13,3 +13,14 @@
 ## Preamble
 
 **The Ninth Path** is a lore-heavy, spiritually charged Skyrim SE/AE modlist built around high-stakes choices, fate-bending consequences, and the silent war between divinity and mortality. Inspired by philosophical and esoteric themes, this list invites you to walk a path few have dared — beyond gods, beyond Daedra, beyond time.
+
+If you enjoy:
+- Mystical exploration and forgotten truths
+- Moral ambiguity and personal consequence
+- Prophecy, fate, and the illusion of choice
+- Ancient ruins, lost worlds, and impossible timelines
+
+Then *The Ninth Path* was made for you.
+
+---
+
