@@ -4,3 +4,12 @@
 > *“Eight paths were walked by mortals. The ninth was forged by man becoming god.”*
 
 ![Banner](.github/TheNinthPath01.png)
+
+## Contents
+- [Preamble](#preamble)
+- [List Contents](#list-contents)
+- [System Requirements](#system-requirements)
+
+## Preamble
+
+**The Ninth Path** is a lore-heavy, spiritually charged Skyrim SE/AE modlist built around high-stakes choices, fate-bending consequences, and the silent war between divinity and mortality. Inspired by philosophical and esoteric themes, this list invites you to walk a path few have dared — beyond gods, beyond Daedra, beyond time.
