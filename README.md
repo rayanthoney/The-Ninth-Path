@@ -26,9 +26,9 @@ Then *The Ninth Path* was made for you.
 
 ## List Contents
 
-The full list of mods can be found on [Load Order Library](https://loadorderlibrary.com/lists/nordic-souls).
+The full list of mods can be found on [Load Order Library](https://loadorderlibrary.com/lists/the-ninth-path).
 
-A more in-depth look at the mods used can be found in the [gameplay guide](https://github.com/Geborgen/nordic-souls/blob/main/GAMEPLAYGUIDE.md).
+A more in-depth look at the mods used can be found in the [gameplay guide](https://github.com/rayanthoney/The-Ninth-Path/blob/main/GAMEPLAYGUIDE.md).
 
 ## System Requirements
 
