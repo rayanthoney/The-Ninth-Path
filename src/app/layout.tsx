@@ -50,7 +50,7 @@ export default async function RootLayout({
               Skyrim is a registered trademark of Bethesda Softworks LLC. This guide is an independent fan creation.
             </p>
             <div className="flex justify-center gap-4 pt-2">
-              <a href="https://loadorderlibrary.com/lists/the-ninth-path" target="_blank" rel="noopener noreferrer" className="hover:text-accent-gold transition-colors">
+              <a href="https://loadorderlibrary.com/lists/lexys-lotd-a-skyrim-modding-guide" target="_blank" rel="noopener noreferrer" className="hover:text-accent-gold transition-colors">
                 Load Order Library
               </a>
               <span>•</span>
