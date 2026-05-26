@@ -1,14 +1,56 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import AlertBlock from './AlertBlock';
 import ModCard from './ModCard';
 import ToolCard from './ToolCard';
 import ChecklistBlock from './ChecklistBlock';
 import { ModEntry, ToolEntry } from '../../lib/types';
+import { LinkIcon, Check } from '../ui/Icons';
 
 interface MarkdownRendererProps {
   content: string;
   mods: ModEntry[];
   tools: ToolEntry[];
+}
+
+function Heading({ id, level, children }: { id: string; level: number; children: React.ReactNode }) {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    if (typeof window === 'undefined') return;
+    const url = `${window.location.origin}${window.location.pathname}#${id}`;
+    navigator.clipboard.writeText(url).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
+  const HeadingTag = level === 2 ? 'h2' : 'h3';
+  const headingClass = level === 2
+    ? 'font-serif text-xl font-bold text-text-primary border-b border-border-primary pb-1.5 mt-8 mb-3 group flex items-center justify-between scroll-mt-20'
+    : 'font-serif text-lg font-bold text-text-primary mt-6 mb-2 group flex items-center justify-between scroll-mt-20';
+
+  return (
+    <HeadingTag id={id} className={headingClass}>
+      <span>{children}</span>
+      <button
+        onClick={handleCopy}
+        className="opacity-0 group-hover:opacity-100 transition-opacity p-1 text-text-muted hover:text-accent-gold focus:opacity-100 focus:outline-none flex items-center gap-1.5 text-[10px] font-sans font-normal normal-case cursor-pointer"
+        title="Copy section link"
+        aria-label="Copy link to this section"
+      >
+        {copied ? (
+          <>
+            <span className="text-emerald-500 font-medium font-sans">Copied!</span>
+            <Check size={14} className="text-emerald-500" />
+          </>
+        ) : (
+          <LinkIcon size={14} />
+        )}
+      </button>
+    </HeadingTag>
+  );
 }
 
 export default function MarkdownRenderer({ content, mods, tools }: MarkdownRendererProps) {
@@ -71,23 +113,17 @@ export default function MarkdownRenderer({ content, mods, tools }: MarkdownRende
 
   // Parse inline text (bold, links, code) safely
   const parseInlineText = (text: string) => {
-    // Escape standard HTML tags except our custom tags
     let parsed = text;
     
-    // Replace **bold** with strong
     const boldRegex = /\*\*([\s\S]+?)\*\*/g;
-    // Replace [text](link) with anchor
     const linkRegex = /\[([\s\S]+?)\]\(([\s\S]+?)\)/g;
-    // Replace `code` with code tags
     const inlineCodeRegex = /`([^`]+)`/g;
 
     const elements: React.ReactNode[] = [];
     let lastIndex = 0;
     
-    // Quick tokenization for inline formatting
     const matches: { index: number; length: number; component: React.ReactNode }[] = [];
 
-    // Find bold matches
     let match;
     while ((match = boldRegex.exec(parsed)) !== null) {
       matches.push({
@@ -97,7 +133,6 @@ export default function MarkdownRenderer({ content, mods, tools }: MarkdownRende
       });
     }
 
-    // Find link matches
     while ((match = linkRegex.exec(parsed)) !== null) {
       matches.push({
         index: match.index,
@@ -110,7 +145,6 @@ export default function MarkdownRenderer({ content, mods, tools }: MarkdownRende
       });
     }
 
-    // Find inline code matches
     while ((match = inlineCodeRegex.exec(parsed)) !== null) {
       matches.push({
         index: match.index,
@@ -119,13 +153,11 @@ export default function MarkdownRenderer({ content, mods, tools }: MarkdownRende
       });
     }
 
-    // Sort matches by index
     matches.sort((a, b) => a.index - b.index);
 
-    // Merge with text
     let indexOffset = 0;
     for (const m of matches) {
-      if (m.index < indexOffset) continue; // Skip overlapping matches
+      if (m.index < indexOffset) continue;
       
       if (m.index > indexOffset) {
         elements.push(parsed.substring(indexOffset, m.index));
@@ -150,12 +182,20 @@ export default function MarkdownRenderer({ content, mods, tools }: MarkdownRende
         if (trimmed.startsWith('### ')) {
           const text = trimmed.substring(4);
           const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-          return <h3 key={index} id={id} className="font-serif text-lg font-bold text-text-primary mt-6 mb-2">{parseInlineText(text)}</h3>;
+          return (
+            <Heading key={index} id={id} level={3}>
+              {parseInlineText(text)}
+            </Heading>
+          );
         }
         if (trimmed.startsWith('## ')) {
           const text = trimmed.substring(3);
           const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-          return <h2 key={index} id={id} className="font-serif text-xl font-bold text-text-primary border-b border-border-primary pb-1.5 mt-8 mb-3">{parseInlineText(text)}</h2>;
+          return (
+            <Heading key={index} id={id} level={2}>
+              {parseInlineText(text)}
+            </Heading>
+          );
         }
         if (trimmed.startsWith('# ')) {
           return <h1 key={index} className="font-serif text-3xl font-extrabold text-text-primary mb-4">{parseInlineText(trimmed.substring(2))}</h1>;
@@ -167,7 +207,7 @@ export default function MarkdownRenderer({ content, mods, tools }: MarkdownRende
           const modId = modMatch[1];
           const mod = mods.find(m => m.id === modId);
           if (mod) return <ModCard key={index} mod={mod} />;
-          return <div key={index} className="text-xs text-red-400 p-2 border border-red-900 rounded bg-red-950/20">Mod "{modId}" not found in content database.</div>;
+          return <div key={index} className="text-xs text-red-400 p-2 border border-red-900 rounded bg-red-950/20 font-sans">Mod "{modId}" not found in content database.</div>;
         }
 
         // 3. ToolCard Embed
@@ -176,7 +216,7 @@ export default function MarkdownRenderer({ content, mods, tools }: MarkdownRende
           const toolId = toolMatch[1];
           const tool = tools.find(t => t.id === toolId);
           if (tool) return <ToolCard key={index} tool={tool} />;
-          return <div key={index} className="text-xs text-red-400 p-2 border border-red-900 rounded bg-red-950/20">Tool "{toolId}" not found in content database.</div>;
+          return <div key={index} className="text-xs text-red-400 p-2 border border-red-900 rounded bg-red-950/20 font-sans">Tool "{toolId}" not found in content database.</div>;
         }
 
         // 4. ChecklistBlock Embed
@@ -195,7 +235,6 @@ export default function MarkdownRenderer({ content, mods, tools }: MarkdownRende
             const alertType = typeMatch[1].toLowerCase() as any;
             const blockLines = trimmed.split('\n');
             
-            // Extract the first line as optional title if it contains strong text
             let alertTitle = '';
             let startIndex = 1;
             
@@ -253,7 +292,7 @@ export default function MarkdownRenderer({ content, mods, tools }: MarkdownRende
           const rows = tableLines.slice(2).map(row => row.split('|').map(td => td.trim()).filter(Boolean)).filter(r => r.length > 0);
 
           return (
-            <div key={index} className="overflow-x-auto rounded border border-border-primary my-4">
+            <div key={index} className="overflow-x-auto rounded border border-border-primary my-4 font-sans">
               <table className="w-full text-left text-xs border-collapse">
                 <thead>
                   <tr className="bg-bg-secondary text-text-primary border-b border-border-primary">

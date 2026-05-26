@@ -152,9 +152,17 @@ export default function SearchModal({ isOpen, onClose, guides, mods, tools }: Se
                           : 'border border-transparent'
                       }`}
                     >
-                      <div className="min-w-0">
-                        <div className="font-serif text-sm font-semibold text-text-primary">
-                          {item.title}
+                      <div className="min-w-0 flex-1">
+                        <div className="font-serif text-sm font-semibold text-text-primary flex items-center gap-1.5 flex-wrap">
+                          {item.title.includes(' > ') ? (
+                            <>
+                              <span className="text-text-muted font-normal text-xs">{item.title.split(' > ')[0]}</span>
+                              <span className="text-text-muted text-[10px]">→</span>
+                              <span className="text-accent-gold font-bold">{item.title.split(' > ')[1]}</span>
+                            </>
+                          ) : (
+                            item.title
+                          )}
                         </div>
                         <div className="text-[11px] text-text-muted truncate mt-0.5">
                           {item.description}

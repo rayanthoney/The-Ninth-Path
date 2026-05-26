@@ -1,3 +1,9 @@
+export interface HeadingItem {
+  id: string;
+  text: string;
+  level: number;
+}
+
 export interface GuidePage {
   id: string;
   slug: string;
@@ -9,6 +15,11 @@ export interface GuidePage {
   estimatedTime?: string;
   difficulty?: 'beginner' | 'intermediate' | 'advanced';
   lastUpdated: string;
+  headings: HeadingItem[];
+  prerequisites?: string[];
+  relatedTools?: string[];
+  relatedMods?: string[];
+  versionScope?: string;
 }
 
 export interface ModEntry {
