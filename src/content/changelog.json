@@ -1,0 +1,33 @@
+[
+  {
+    "id": "1",
+    "version": "1.0.0",
+    "date": "2026-05-26",
+    "summary": "Initial Release of the Ninth Path structured web interface.",
+    "breakingChanges": [
+      "Requires clean reinstall of the Skyrim base folder.",
+      "New custom conflict resolution patch for LOTD is required."
+    ],
+    "added": [
+      "Seeded 20 core mods and 8 core tools in search indices.",
+      "Introduced responsive, high-contrast dark fantasy user interface.",
+      "Added inline warnings, step lists, and fomod instruction renderers."
+    ],
+    "removed": [],
+    "updated": [],
+    "affectedPages": ["home", "pre-installation", "install-part-1"]
+  },
+  {
+    "id": "2",
+    "version": "0.1.1.9",
+    "date": "2026-04-15",
+    "summary": "Beta version with baseline Skyrim SE/AE support.",
+    "breakingChanges": [],
+    "added": [
+      "Baseline load order list created.",
+      "Added support for Steam Skyrim version 1.6.1170."
+    ],
+    "removed": [],
+    "updated": []
+  }
+]

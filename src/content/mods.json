@@ -1,0 +1,291 @@
+[
+  {
+    "id": "ussep",
+    "name": "Unofficial Skyrim Special Edition Patch",
+    "category": "Bug Fixes",
+    "installPhase": 1,
+    "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/266",
+    "sourceType": "Nexus",
+    "versionPinned": "4.3.2",
+    "fileType": "Main",
+    "tags": ["Essential", "Bugfix"],
+    "specialInstructions": [
+      "Ensure this is loaded immediately after the official DLC master files.",
+      "Required by almost all modern mods."
+    ],
+    "required": true
+  },
+  {
+    "id": "skyui",
+    "name": "SkyUI",
+    "category": "User Interface",
+    "installPhase": 1,
+    "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/12604",
+    "sourceType": "Nexus",
+    "versionPinned": "5.2.0",
+    "fileType": "Main",
+    "tags": ["UI", "SKSE", "MCM"],
+    "fomodInstructions": [
+      "Select default interface options unless using custom controller mappings."
+    ],
+    "specialInstructions": [
+      "Requires SKSE64 to function correctly.",
+      "Provides the Mod Configuration Menu (MCM) interface."
+    ],
+    "required": true
+  },
+  {
+    "id": "racemenu",
+    "name": "RaceMenu",
+    "category": "User Interface",
+    "installPhase": 1,
+    "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/19080",
+    "sourceType": "Nexus",
+    "versionPinned": "0.4.19",
+    "fileType": "Main",
+    "tags": ["UI", "Character Creation", "SKSE"],
+    "required": true
+  },
+  {
+    "id": "alternate-start",
+    "name": "Alternate Start - Live Another Life",
+    "category": "Alternate Start",
+    "installPhase": 1,
+    "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/272",
+    "sourceType": "Nexus",
+    "versionPinned": "4.2.1",
+    "fileType": "Main",
+    "tags": ["Gameplay", "Essential"],
+    "specialInstructions": [
+      "Must be loaded very late in the load order (conflict resolution).",
+      "Do not begin the default Helgen start unless you specifically want vanilla intro scripts to run."
+    ],
+    "required": true
+  },
+  {
+    "id": "smim",
+    "name": "Static Mesh Improvement Mod (SMIM)",
+    "category": "Graphics",
+    "installPhase": 1,
+    "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/659",
+    "sourceType": "Nexus",
+    "versionPinned": "2.08",
+    "fileType": "Main",
+    "tags": ["Graphics", "Meshes", "Heavy"],
+    "fomodInstructions": [
+      "Select 'Install Everything - Full Version' for the best visual experience.",
+      "Enable custom parallax options if using a parallax-capable ENB/Community Shaders."
+    ],
+    "required": true
+  },
+  {
+    "id": "noble-skyrim",
+    "name": "Noble Skyrim Mod HD-2K",
+    "category": "Graphics",
+    "installPhase": 1,
+    "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/2148",
+    "sourceType": "Nexus",
+    "versionPinned": "5.5.0",
+    "fileType": "Main",
+    "tags": ["Graphics", "Textures"],
+    "specialInstructions": [
+      "Let SMIM overwrite Noble Skyrim meshes where prompted by Mod Organizer 2."
+    ],
+    "required": true
+  },
+  {
+    "id": "elfx",
+    "name": "Enhanced Lights and FX",
+    "category": "Lighting",
+    "installPhase": 1,
+    "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/2424",
+    "sourceType": "Nexus",
+    "versionPinned": "3.06",
+    "fileType": "Main",
+    "tags": ["Lighting", "Atmosphere"],
+    "fomodInstructions": [
+      "Choose 'ELFX - Enhancer' for darker dungeons and realistic interiors.",
+      "Do NOT check the Weather plugin if you plan to use Obsidian Weathers later."
+    ],
+    "required": true
+  },
+  {
+    "id": "legacy-lotd",
+    "name": "Legacy of the Dragonborn SSE",
+    "category": "Major Quests",
+    "installPhase": 1,
+    "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/11802",
+    "sourceType": "Nexus",
+    "versionPinned": "5.65.0",
+    "fileType": "Main",
+    "tags": ["Quest", "Museum", "Core"],
+    "specialInstructions": [
+      "This list is heavily centered around LOTD.",
+      "Ensure you run a new game; do not install this mid-playthrough.",
+      "Requires patches for almost all quest/equipment mods added in later stages."
+    ],
+    "required": true
+  },
+  {
+    "id": "ordinator",
+    "name": "Ordinator - Perks of Skyrim",
+    "category": "Gameplay",
+    "installPhase": 1,
+    "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1137",
+    "sourceType": "Nexus",
+    "versionPinned": "9.31.0",
+    "fileType": "Main",
+    "tags": ["Perks", "Overhaul"],
+    "specialInstructions": [
+      "Ensure you get the 'Ordinator - 20% More Perks' optional file if you prefer faster perk progression."
+    ],
+    "required": true
+  },
+  {
+    "id": "apocalypse",
+    "name": "Apocalypse - Magic of Skyrim",
+    "category": "Magic",
+    "installPhase": 1,
+    "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1090",
+    "sourceType": "Nexus",
+    "versionPinned": "9.45.0",
+    "fileType": "Main",
+    "tags": ["Magic", "Spells"],
+    "specialInstructions": [
+      "Requires the 'Apocalypse - Ordinator Compatibility Patch' if using Ordinator."
+    ],
+    "required": true
+  },
+  {
+    "id": "immersive-citizens",
+    "name": "Immersive Citizens - AI Overhaul",
+    "category": "AI/NPCs",
+    "installPhase": 1,
+    "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/173",
+    "sourceType": "Nexus",
+    "versionPinned": "0.4.0",
+    "fileType": "Main",
+    "tags": ["AI", "Immersive"],
+    "required": true
+  },
+  {
+    "id": "cutting-room-floor",
+    "name": "Cutting Room Floor",
+    "category": "Bug Fixes",
+    "installPhase": 1,
+    "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/276",
+    "sourceType": "Nexus",
+    "versionPinned": "3.1.15",
+    "fileType": "Main",
+    "tags": ["Content Restore", "Bugfix"],
+    "required": true
+  },
+  {
+    "id": "interesting-npcs",
+    "name": "Interesting NPCs (3DNPC)",
+    "category": "AI/NPCs",
+    "installPhase": 1,
+    "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/29194",
+    "sourceType": "Nexus",
+    "versionPinned": "4.5.3",
+    "fileType": "Main",
+    "tags": ["NPCs", "Quests", "Voice Acting"],
+    "specialInstructions": [
+      "Make sure to download the 3DNPC SE Hotfix if available."
+    ],
+    "required": false
+  },
+  {
+    "id": "rdo",
+    "name": "Relationship Dialogue Overhaul",
+    "category": "AI/NPCs",
+    "installPhase": 1,
+    "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1187",
+    "sourceType": "Nexus",
+    "versionPinned": "2.0.0",
+    "fileType": "Main",
+    "tags": ["Dialogue", "Immersive"],
+    "specialInstructions": [
+      "Requires the USSEP and RDO compatibility patch to avoid dialogue lockouts."
+    ],
+    "required": true
+  },
+  {
+    "id": "convenient-horses",
+    "name": "Convenient Horses",
+    "category": "Gameplay",
+    "installPhase": 1,
+    "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/2247",
+    "sourceType": "Nexus",
+    "versionPinned": "7.0.1",
+    "fileType": "Main",
+    "tags": ["Horses", "Gameplay"],
+    "required": false
+  },
+  {
+    "id": "immersive-armors",
+    "name": "Immersive Armors",
+    "category": "Equipment",
+    "installPhase": 1,
+    "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/3479",
+    "sourceType": "Nexus",
+    "versionPinned": "8.1.0",
+    "fileType": "Main",
+    "tags": ["Armor", "Equipment"],
+    "specialInstructions": [
+      "Ensure you disable the shield distribution option in the MCM if it causes micro-stutter."
+    ],
+    "required": true
+  },
+  {
+    "id": "immersive-weapons",
+    "name": "Immersive Weapons",
+    "category": "Equipment",
+    "installPhase": 1,
+    "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/8298",
+    "sourceType": "Nexus",
+    "versionPinned": "2.0.0",
+    "fileType": "Main",
+    "tags": ["Weapons", "Equipment"],
+    "required": true
+  },
+  {
+    "id": "wildcat",
+    "name": "Wildcat - Combat of Skyrim",
+    "category": "Combat",
+    "installPhase": 1,
+    "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/1368",
+    "sourceType": "Nexus",
+    "versionPinned": "7.0.0",
+    "fileType": "Main",
+    "tags": ["Combat", "Injury"],
+    "required": true
+  },
+  {
+    "id": "wet-and-cold",
+    "name": "Wet and Cold SE",
+    "category": "Gameplay",
+    "installPhase": 1,
+    "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/644",
+    "sourceType": "Nexus",
+    "versionPinned": "2.4.0",
+    "fileType": "Main",
+    "tags": ["Survival", "Immersive"],
+    "specialInstructions": [
+      "Disable freezing effects in MCM if you are using Survival Mode or SunHelm to avoid duplicate status debuffs."
+    ],
+    "required": false
+  },
+  {
+    "id": "skyrim-flora-overhaul",
+    "name": "Skyrim Flora Overhaul SE",
+    "category": "Graphics",
+    "installPhase": 1,
+    "sourceUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/2154",
+    "sourceType": "Nexus",
+    "versionPinned": "2.72",
+    "fileType": "Main",
+    "tags": ["Flora", "Graphics", "Trees"],
+    "required": false
+  }
+]

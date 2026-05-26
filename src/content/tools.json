@@ -1,0 +1,99 @@
+[
+  {
+    "id": "mo2",
+    "name": "Mod Organizer 2",
+    "purpose": "Primary mod management tool, uses virtual filesystem to keep Skyrim directory clean.",
+    "downloadUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/244",
+    "versionPinned": "2.5.0",
+    "usedInSections": ["preinstall", "common-tasks", "install", "finishing"],
+    "installNotes": [
+      "Install MO2 on the same SSD drive as Skyrim, but NOT inside the Steam or Skyrim game folder.",
+      "Recommend creating a folder named 'Skyrim Modding' or 'MO2' at root level (e.g. C:\\SkyrimModding\\MO2).",
+      "Configure MO2 profile with 'Use profile-specific Game INI Files' enabled."
+    ]
+  },
+  {
+    "id": "loot",
+    "name": "LOOT",
+    "purpose": "Load Order Optimisation Tool. Analyzes plugin files to suggest optimal order and warn about missing patches or dirty edits.",
+    "downloadUrl": "https://loot.github.io/",
+    "versionPinned": "0.22.3",
+    "usedInSections": ["preinstall", "common-tasks", "finishing"],
+    "installNotes": [
+      "Install LOOT and add it to the MO2 executable list.",
+      "Always run LOOT through MO2 to ensure it detects the virtual mod layout."
+    ]
+  },
+  {
+    "id": "xedit",
+    "name": "SSEEdit (xEdit)",
+    "purpose": "Advanced conflict detection, editing, cleaning and patch creation utility.",
+    "downloadUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/164",
+    "versionPinned": "4.1.5",
+    "usedInSections": ["common-tasks", "merge-patch", "finishing"],
+    "installNotes": [
+      "Extract the downloaded archive into a folder inside your Modding tools directory (e.g., C:\\SkyrimModding\\SSEEdit).",
+      "Create a copy of SSEEdit.exe and rename it to SSEEditQuickClean.exe to enable auto-cleaning modes in MO2."
+    ]
+  },
+  {
+    "id": "wrye-bash",
+    "name": "Wrye Bash",
+    "purpose": "Generates a 'Bashed Patch' that merges level lists, item edits, and tweak settings across multiple mods.",
+    "downloadUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/18",
+    "versionPinned": "312",
+    "usedInSections": ["merge-patch", "finishing"],
+    "installNotes": [
+      "Install as a standalone application and configure its executable pointer in MO2.",
+      "Run Wrye Bash via MO2 and build the Bashed Patch, ensuring 'Merge Patches' is disabled if doing manual zMerges."
+    ]
+  },
+  {
+    "id": "zmerge",
+    "name": "zEdit / zMerge",
+    "purpose": "Conflict resolution and plugin merging toolkit to bypass Skyrim's 254 active ESP limit.",
+    "downloadUrl": "https://github.com/z-edit/zedit/releases",
+    "versionPinned": "0.6.7",
+    "usedInSections": ["merge-patch"],
+    "installNotes": [
+      "Download the portable version and register zEdit.exe inside MO2.",
+      "Use zMerge to merge modular weapon, armor, and simple quest plugins into unified ESPs."
+    ]
+  },
+  {
+    "id": "dyndolod",
+    "name": "DynDOLOD",
+    "purpose": "Dynamic Distant LOD. Generates high-quality tree and object LODs matching your exact mod list.",
+    "downloadUrl": "https://dyndolod.info/Downloads",
+    "versionPinned": "3.00 Alpha",
+    "usedInSections": ["finishing-line"],
+    "installNotes": [
+      "Requires DynDOLOD Resources SE, DynDOLOD DLL SE, and TexGen to be run first.",
+      "Run TexGen through MO2 to generate texture billboards, then run DynDOLOD to bake the final LOD output."
+    ]
+  },
+  {
+    "id": "cao",
+    "name": "Cathedral Assets Optimizer",
+    "purpose": "Optimizes and formats texture, mesh, animation, and sound files for maximum engine performance.",
+    "downloadUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/23316",
+    "versionPinned": "6.0.2",
+    "usedInSections": ["common-tasks"],
+    "installNotes": [
+      "Crucial for optimizing older Skyrim Legendary Edition assets converted to Special Edition format.",
+      "Can compile or extract BSA archives safely."
+    ]
+  },
+  {
+    "id": "creationkit",
+    "name": "Creation Kit SE",
+    "purpose": "The official editor for Skyrim. Used to resave older ESP files to update their header version to Form 44.",
+    "downloadUrl": "https://store.steampowered.com",
+    "versionPinned": "1.6.438",
+    "usedInSections": ["preinstall", "common-tasks"],
+    "installNotes": [
+      "Install via Steam under Skyrim Special Edition tools.",
+      "Highly recommended to install Creation Kit Platform Extended (fixes memory leaks and crashes) and CK Fixes."
+    ]
+  }
+]
