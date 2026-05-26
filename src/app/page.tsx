@@ -28,7 +28,7 @@ export default function Home() {
         <p className="text-text-secondary text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
           A lore-heavy, spiritually charged Skyrim SE/AE modlist built around high-stakes choices, fate-bending consequences, and the silent war between divinity and mortality.
         </p>
-        
+
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
           <Link
             href="/docs/start-here"
@@ -37,7 +37,7 @@ export default function Home() {
             Begin Pre-Installation
           </Link>
           <a
-            href="https://loadorderlibrary.com/lists/the-ninth-path"
+            href="https://loadorderlibrary.com/lists/lexys-lotd-a-skyrim-modding-guide"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto px-8 py-3.5 rounded border border-border-primary text-text-secondary hover:text-text-primary hover:bg-bg-secondary transition-all font-semibold uppercase tracking-wider text-xs"
