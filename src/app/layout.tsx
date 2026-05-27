@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Cinzel, Inter } from 'next/font/google';
 import './globals.css';
+import Link from 'next/link';
 import Header from '../components/docs/Header';
 import { getGuides, getMods, getTools } from '../lib/content';
 
@@ -54,13 +55,13 @@ export default async function RootLayout({
                 Load Order Library
               </a>
               <span>•</span>
-              <a href="/docs/faq" className="hover:text-accent-gold transition-colors">
+              <Link href="/docs/faq" className="hover:text-accent-gold transition-colors">
                 Support FAQ
-              </a>
+              </Link>
               <span>•</span>
-              <a href="/docs/changelog" className="hover:text-accent-gold transition-colors">
+              <Link href="/docs/changelog" className="hover:text-accent-gold transition-colors">
                 Changelog
-              </a>
+              </Link>
             </div>
           </div>
         </footer>

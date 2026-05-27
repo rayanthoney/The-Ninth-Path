@@ -13,10 +13,8 @@ interface HeadingItem {
 }
 
 export default function OnPageTOC({ content }: OnPageTOCProps) {
-  const [headings, setHeadings] = useState<HeadingItem[]>([]);
   const [activeId, setActiveId] = useState<string>('');
-
-  useEffect(() => {
+  const headings = React.useMemo(() => {
     // Parse h2 and h3 elements from markdown content
     const lines = content.split('\n');
     const headingItems: HeadingItem[] = [];
@@ -36,7 +34,7 @@ export default function OnPageTOC({ content }: OnPageTOCProps) {
       }
     });
 
-    setHeadings(headingItems);
+    return headingItems;
   }, [content]);
 
   useEffect(() => {

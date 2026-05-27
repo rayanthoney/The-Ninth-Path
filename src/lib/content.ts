@@ -114,79 +114,82 @@ function validateGuidePage(data: Record<string, string>, fileName: string, fileC
   };
 }
 
-function validateModEntry(mod: any, index: number): ModEntry {
-  const context = `mods.json at index ${index} (${mod.name || 'unnamed'})`;
+function validateModEntry(mod: unknown, index: number): ModEntry {
+  const m = mod as Record<string, unknown>;
+  const context = `mods.json at index ${index} (${m.name || 'unnamed'})`;
 
-  if (!mod.id || typeof mod.id !== 'string') throw new Error(`Content validation error in ${context}: "id" is required and must be a string.`);
-  if (!mod.name || typeof mod.name !== 'string') throw new Error(`Content validation error in ${context}: "name" is required and must be a string.`);
-  if (!mod.category || typeof mod.category !== 'string') throw new Error(`Content validation error in ${context}: "category" is required and must be a string.`);
-  if (typeof mod.installPhase !== 'number') throw new Error(`Content validation error in ${context}: "installPhase" is required and must be a number.`);
-  if (!mod.sourceUrl || typeof mod.sourceUrl !== 'string') throw new Error(`Content validation error in ${context}: "sourceUrl" is required and must be a string.`);
+  if (!m.id || typeof m.id !== 'string') throw new Error(`Content validation error in ${context}: "id" is required and must be a string.`);
+  if (!m.name || typeof m.name !== 'string') throw new Error(`Content validation error in ${context}: "name" is required and must be a string.`);
+  if (!m.category || typeof m.category !== 'string') throw new Error(`Content validation error in ${context}: "category" is required and must be a string.`);
+  if (typeof m.installPhase !== 'number') throw new Error(`Content validation error in ${context}: "installPhase" is required and must be a number.`);
+  if (!m.sourceUrl || typeof m.sourceUrl !== 'string') throw new Error(`Content validation error in ${context}: "sourceUrl" is required and must be a string.`);
   
   const validSourceTypes = ['Nexus', 'GitHub', 'Direct'];
-  if (!validSourceTypes.includes(mod.sourceType)) {
-    throw new Error(`Content validation error in ${context}: "sourceType" must be one of [${validSourceTypes.join(', ')}]. Received: "${mod.sourceType}"`);
+  if (!validSourceTypes.includes(m.sourceType as string)) {
+    throw new Error(`Content validation error in ${context}: "sourceType" must be one of [${validSourceTypes.join(', ')}]. Received: "${m.sourceType}"`);
   }
 
   const validFileTypes = ['Main', 'Update', 'Optional', 'Misc'];
-  if (!validFileTypes.includes(mod.fileType)) {
-    throw new Error(`Content validation error in ${context}: "fileType" must be one of [${validFileTypes.join(', ')}]. Received: "${mod.fileType}"`);
+  if (!validFileTypes.includes(m.fileType as string)) {
+    throw new Error(`Content validation error in ${context}: "fileType" must be one of [${validFileTypes.join(', ')}]. Received: "${m.fileType}"`);
   }
 
-  if (typeof mod.required !== 'boolean') throw new Error(`Content validation error in ${context}: "required" is required and must be a boolean.`);
+  if (typeof m.required !== 'boolean') throw new Error(`Content validation error in ${context}: "required" is required and must be a boolean.`);
 
-  const assertStringArray = (arr: any, fieldName: string) => {
+  const assertStringArray = (arr: unknown, fieldName: string) => {
     if (arr !== undefined && (!Array.isArray(arr) || arr.some(item => typeof item !== 'string'))) {
       throw new Error(`Content validation error in ${context}: "${fieldName}" must be an array of strings.`);
     }
   };
 
-  assertStringArray(mod.tags, 'tags');
-  assertStringArray(mod.fomodInstructions, 'fomodInstructions');
-  assertStringArray(mod.specialInstructions, 'specialInstructions');
+  assertStringArray(m.tags, 'tags');
+  assertStringArray(m.fomodInstructions, 'fomodInstructions');
+  assertStringArray(m.specialInstructions, 'specialInstructions');
 
   return mod as ModEntry;
 }
 
-function validateToolEntry(tool: any, index: number): ToolEntry {
-  const context = `tools.json at index ${index} (${tool.name || 'unnamed'})`;
+function validateToolEntry(tool: unknown, index: number): ToolEntry {
+  const t = tool as Record<string, unknown>;
+  const context = `tools.json at index ${index} (${t.name || 'unnamed'})`;
 
-  if (!tool.id || typeof tool.id !== 'string') throw new Error(`Content validation error in ${context}: "id" is required and must be a string.`);
-  if (!tool.name || typeof tool.name !== 'string') throw new Error(`Content validation error in ${context}: "name" is required and must be a string.`);
-  if (!tool.purpose || typeof tool.purpose !== 'string') throw new Error(`Content validation error in ${context}: "purpose" is required and must be a string.`);
-  if (!tool.downloadUrl || typeof tool.downloadUrl !== 'string') throw new Error(`Content validation error in ${context}: "downloadUrl" is required and must be a string.`);
-  if (!tool.versionPinned || typeof tool.versionPinned !== 'string') throw new Error(`Content validation error in ${context}: "versionPinned" is required and must be a string.`);
+  if (!t.id || typeof t.id !== 'string') throw new Error(`Content validation error in ${context}: "id" is required and must be a string.`);
+  if (!t.name || typeof t.name !== 'string') throw new Error(`Content validation error in ${context}: "name" is required and must be a string.`);
+  if (!t.purpose || typeof t.purpose !== 'string') throw new Error(`Content validation error in ${context}: "purpose" is required and must be a string.`);
+  if (!t.downloadUrl || typeof t.downloadUrl !== 'string') throw new Error(`Content validation error in ${context}: "downloadUrl" is required and must be a string.`);
+  if (!t.versionPinned || typeof t.versionPinned !== 'string') throw new Error(`Content validation error in ${context}: "versionPinned" is required and must be a string.`);
 
-  if (!Array.isArray(tool.usedInSections) || tool.usedInSections.some((s: any) => typeof s !== 'string')) {
+  if (!Array.isArray(t.usedInSections) || t.usedInSections.some((s: unknown) => typeof s !== 'string')) {
     throw new Error(`Content validation error in ${context}: "usedInSections" is required and must be an array of strings.`);
   }
 
-  if (!Array.isArray(tool.installNotes) || tool.installNotes.some((n: any) => typeof n !== 'string')) {
+  if (!Array.isArray(t.installNotes) || t.installNotes.some((n: unknown) => typeof n !== 'string')) {
     throw new Error(`Content validation error in ${context}: "installNotes" is required and must be an array of strings.`);
   }
 
   return tool as ToolEntry;
 }
 
-function validateChangelogEntry(entry: any, index: number): ChangelogEntry {
-  const context = `changelog.json at index ${index} (Version ${entry.version || 'unknown'})`;
+function validateChangelogEntry(entry: unknown, index: number): ChangelogEntry {
+  const e = entry as Record<string, unknown>;
+  const context = `changelog.json at index ${index} (Version ${e.version || 'unknown'})`;
 
-  if (!entry.id || typeof entry.id !== 'string') throw new Error(`Content validation error in ${context}: "id" is required and must be a string.`);
-  if (!entry.version || typeof entry.version !== 'string') throw new Error(`Content validation error in ${context}: "version" is required and must be a string.`);
-  if (!entry.date || typeof entry.date !== 'string') throw new Error(`Content validation error in ${context}: "date" is required and must be a string.`);
-  if (!entry.summary || typeof entry.summary !== 'string') throw new Error(`Content validation error in ${context}: "summary" is required and must be a string.`);
+  if (!e.id || typeof e.id !== 'string') throw new Error(`Content validation error in ${context}: "id" is required and must be a string.`);
+  if (!e.version || typeof e.version !== 'string') throw new Error(`Content validation error in ${context}: "version" is required and must be a string.`);
+  if (!e.date || typeof e.date !== 'string') throw new Error(`Content validation error in ${context}: "date" is required and must be a string.`);
+  if (!e.summary || typeof e.summary !== 'string') throw new Error(`Content validation error in ${context}: "summary" is required and must be a string.`);
 
-  const assertStringArray = (arr: any, fieldName: string) => {
+  const assertStringArray = (arr: unknown, fieldName: string) => {
     if (arr !== undefined && (!Array.isArray(arr) || arr.some(item => typeof item !== 'string'))) {
       throw new Error(`Content validation error in ${context}: "${fieldName}" must be an array of strings.`);
     }
   };
 
-  assertStringArray(entry.breakingChanges, 'breakingChanges');
-  assertStringArray(entry.added, 'added');
-  assertStringArray(entry.removed, 'removed');
-  assertStringArray(entry.updated, 'updated');
-  assertStringArray(entry.affectedPages, 'affectedPages');
+  assertStringArray(e.breakingChanges, 'breakingChanges');
+  assertStringArray(e.added, 'added');
+  assertStringArray(e.removed, 'removed');
+  assertStringArray(e.updated, 'updated');
+  assertStringArray(e.affectedPages, 'affectedPages');
 
   return entry as ChangelogEntry;
 }

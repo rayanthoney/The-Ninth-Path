@@ -31,7 +31,7 @@ export default function ToolsIndexPage() {
           Except for standalone system prep files (such as 7-Zip or VC++ redistributables), every tool listed below must be registered as an executable within **Mod Organizer 2** (MO2) to function correctly. 
         </p>
         <p>
-          Running tools outside MO2's virtual filesystem will fail to read the active plugins list and will compile files in incorrect directories. Refer to each tool's notes for custom folders.
+          Running tools outside MO2&apos;s virtual filesystem will fail to read the active plugins list and will compile files in incorrect directories. Refer to each tool&apos;s notes for custom folders.
         </p>
       </div>
 

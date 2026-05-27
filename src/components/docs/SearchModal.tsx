@@ -25,10 +25,13 @@ export default function SearchModal({ isOpen, onClose, guides, mods, tools }: Se
   // Focus input when opened
   useEffect(() => {
     if (isOpen) {
-      setQuery('');
-      setResults([]);
-      setSelectedIndex(0);
-      setTimeout(() => inputRef.current?.focus(), 50);
+      const timer = setTimeout(() => {
+        setQuery('');
+        setResults([]);
+        setSelectedIndex(0);
+        inputRef.current?.focus();
+      }, 50);
+      return () => clearTimeout(timer);
     }
   }, [isOpen]);
 
@@ -128,7 +131,7 @@ export default function SearchModal({ isOpen, onClose, guides, mods, tools }: Se
             </div>
           ) : results.length === 0 ? (
             <div className="p-8 text-center text-xs text-text-muted">
-              No results found matching "{query}".
+              No results found matching &ldquo;{query}&rdquo;.
             </div>
           ) : (
             <ul className="space-y-1 pl-0">

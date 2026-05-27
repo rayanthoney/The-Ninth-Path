@@ -17,8 +17,11 @@ export default function ChecklistBlock({ id, title, items }: ChecklistBlockProps
     const saved = localStorage.getItem(`checklist_${id}`);
     if (saved) {
       try {
-        setCheckedItems(JSON.parse(saved));
-      } catch (e) {
+        const parsed = JSON.parse(saved);
+        setTimeout(() => {
+          setCheckedItems(parsed);
+        }, 0);
+      } catch {
         // ignore parsing errors
       }
     }

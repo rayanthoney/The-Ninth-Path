@@ -9,15 +9,13 @@ export default function ThemeToggle() {
   useEffect(() => {
     // Check local storage or system preference
     const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
-    if (savedTheme) {
-      setTheme(savedTheme);
-      document.documentElement.className = savedTheme;
-    } else {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const initialTheme = prefersDark ? 'dark' : 'light';
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+    
+    setTimeout(() => {
       setTheme(initialTheme);
       document.documentElement.className = initialTheme;
-    }
+    }, 0);
   }, []);
 
   const toggleTheme = () => {

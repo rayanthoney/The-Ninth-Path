@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { ModEntry } from '../../lib/types';
-import { ExternalLink, Check, Info, AlertTriangle } from '../ui/Icons';
+import { ExternalLink, Check, AlertTriangle } from '../ui/Icons';
 
 interface ModCardProps {
   mod: ModEntry;

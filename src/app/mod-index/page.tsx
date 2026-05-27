@@ -2,7 +2,6 @@
 
 import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
 import modsData from '../../content/mods.json';
 import { ModEntry } from '../../lib/types';
 import { Search, ExternalLink, ChevronRight } from '../../components/ui/Icons';
@@ -41,7 +40,9 @@ export default function ModIndexPage() {
       const params = new URLSearchParams(window.location.search);
       const q = params.get('search');
       if (q) {
-        setSearchQuery(q);
+        setTimeout(() => {
+          setSearchQuery(q);
+        }, 0);
       }
     }
   }, []);

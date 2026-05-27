@@ -113,14 +113,13 @@ export default function MarkdownRenderer({ content, mods, tools }: MarkdownRende
 
   // Parse inline text (bold, links, code) safely
   const parseInlineText = (text: string) => {
-    let parsed = text;
+    const parsed = text;
     
     const boldRegex = /\*\*([\s\S]+?)\*\*/g;
     const linkRegex = /\[([\s\S]+?)\]\(([\s\S]+?)\)/g;
     const inlineCodeRegex = /`([^`]+)`/g;
 
     const elements: React.ReactNode[] = [];
-    let lastIndex = 0;
     
     const matches: { index: number; length: number; component: React.ReactNode }[] = [];
 
@@ -207,7 +206,7 @@ export default function MarkdownRenderer({ content, mods, tools }: MarkdownRende
           const modId = modMatch[1];
           const mod = mods.find(m => m.id === modId);
           if (mod) return <ModCard key={index} mod={mod} />;
-          return <div key={index} className="text-xs text-red-400 p-2 border border-red-900 rounded bg-red-950/20 font-sans">Mod "{modId}" not found in content database.</div>;
+          return <div key={index} className="text-xs text-red-400 p-2 border border-red-900 rounded bg-red-950/20 font-sans">Mod &ldquo;{modId}&rdquo; not found in content database.</div>;
         }
 
         // 3. ToolCard Embed
@@ -216,7 +215,7 @@ export default function MarkdownRenderer({ content, mods, tools }: MarkdownRende
           const toolId = toolMatch[1];
           const tool = tools.find(t => t.id === toolId);
           if (tool) return <ToolCard key={index} tool={tool} />;
-          return <div key={index} className="text-xs text-red-400 p-2 border border-red-900 rounded bg-red-950/20 font-sans">Tool "{toolId}" not found in content database.</div>;
+          return <div key={index} className="text-xs text-red-400 p-2 border border-red-900 rounded bg-red-950/20 font-sans">Tool &ldquo;{toolId}&rdquo; not found in content database.</div>;
         }
 
         // 4. ChecklistBlock Embed
@@ -232,7 +231,7 @@ export default function MarkdownRenderer({ content, mods, tools }: MarkdownRende
         if (trimmed.startsWith('> [!')) {
           const typeMatch = trimmed.match(/^> \[\!([A-Z]+)\]/i);
           if (typeMatch) {
-            const alertType = typeMatch[1].toLowerCase() as any;
+            const alertType = typeMatch[1].toLowerCase() as 'note' | 'warning' | 'critical' | 'success' | 'tip';
             const blockLines = trimmed.split('\n');
             
             let alertTitle = '';

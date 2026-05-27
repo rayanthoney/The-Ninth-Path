@@ -23,12 +23,12 @@ export default function Home() {
           THE NINTH PATH
         </h1>
         <p className="font-serif italic text-xs md:text-sm text-accent-gold uppercase tracking-widest mb-6">
-          "Eight paths were walked by mortals. The ninth was forged by man becoming god."
+          &ldquo;Eight paths were walked by mortals. The ninth was forged by man becoming god.&rdquo;
         </p>
         
         {/* Core Scope Overview */}
         <p className="text-text-secondary text-sm md:text-base max-w-2xl mx-auto mb-8 leading-relaxed font-sans">
-          A highly curated, lore-centric Skyrim SE/AE modding platform merging the baseline stability of the Lexy's LOTD ecosystem with modular survival dynamics, custom player houses, and hand-written script resolutions for a completely seamless 1,200+ plugin installation.
+          A highly curated, lore-centric Skyrim SE/AE modding platform merging the baseline stability of the Lexy&apos;s LOTD ecosystem with modular survival dynamics, custom player houses, and hand-written script resolutions for a completely seamless 1,200+ plugin installation.
         </p>
 
         {/* Integrated Quick Specs */}
@@ -83,7 +83,7 @@ export default function Home() {
           </div>
           <div className="p-1 pt-4 md:pt-1">
             <span className="block text-[9px] uppercase font-bold tracking-wider text-text-muted mb-0.5">Base Build Foundation</span>
-            <span className="font-serif text-xs font-bold text-text-primary">Lexy's LOTD v5.x</span>
+            <span className="font-serif text-xs font-bold text-text-primary">Lexy&apos;s LOTD v5.x</span>
           </div>
           <div className="p-1 pt-4 md:pt-1">
             <span className="block text-[9px] uppercase font-bold tracking-wider text-text-muted mb-0.5">Release Tier</span>
@@ -101,7 +101,7 @@ export default function Home() {
               The Scope of The Ninth Path
             </h2>
             <p className="text-text-secondary text-sm leading-relaxed font-sans">
-              Modding a game to over 1,200 active entries changes it entirely. This list merges the legendary stability and contents of the Lexy's LOTD build with unique custom-scripted story arcs, custom player homes (like Mörskom Estate, Riverside Lodge, and Dovahkiin's Vault), and refined survival dynamics.
+              Modding a game to over 1,200 active entries changes it entirely. This list merges the legendary stability and contents of the Lexy&apos;s LOTD build with unique custom-scripted story arcs, custom player homes (like Mörskom Estate, Riverside Lodge, and Dovahkiin&apos;s Vault), and refined survival dynamics.
             </p>
             <p className="text-text-secondary text-sm leading-relaxed font-sans">
               The goal of this guide is to lead you from a raw base Skyrim folder all the way to a completely patched, conflict-resolved, LOD-baked installation with 100% stability.
