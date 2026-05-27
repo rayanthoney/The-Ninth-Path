@@ -2,7 +2,7 @@
 title: Pre-Installation
 slug: pre-installation
 section: preinstall
-sequence: 2
+sequence: 3
 description: How to configure your OS, Steam, Skyrim Special Edition, and Mod Organizer 2 to prepare for the modlist.
 estimatedTime: 45 mins
 difficulty: intermediate
